@@ -7,13 +7,13 @@
 #include <sqlpp11/mysql/mysql.h>
 #include <sqlpp11/sqlpp11.h>
 
-#include "database/char_base.h"
+#include "database/chars.h"
 #include "database/char_history.h"
 
 using namespace xidb;
 namespace sql = sqlpp::mysql;
 
-constexpr CharBase chars{};
+constexpr Chars chars{};
 constexpr CharHistory char_history{};
 
 sql::connection database_connect()
