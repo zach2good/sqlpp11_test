@@ -43,6 +43,15 @@ void unconditional_select(sql::connection& db)
     }
 }
 
+void unconditional_select_small(sql::connection& db)
+{
+    std::cout << "Unconditional select test (small)\n";
+    for (auto const& row : db(select(chars.charname).from(chars).unconditionally()))
+    {
+        std::cout << "charname: " << row.charname << "\n";
+    }
+}
+
 void conditional_select(sql::connection& db)
 {
     std::cout << "Conditional select test\n";
@@ -80,6 +89,7 @@ int main()
     auto db = database_connect();
 
     unconditional_select(db);
+    unconditional_select_small(db);
     conditional_select(db);
     inner_join(db);
 
